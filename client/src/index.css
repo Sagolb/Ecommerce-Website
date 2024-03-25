@@ -18,6 +18,7 @@
   box-shadow: 0 8px 6px -6px gray;
   --webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: solid gray !important;
+  margin-bottom: 5px;
 }
 
 .nav-link {
@@ -53,7 +54,7 @@
 
 .footer {
   color: white;
-  padding: 25px;
+  padding: 10px;
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,

@@ -9,7 +9,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-//payment gateway
 var gateway = new braintree.BraintreeGateway({
   environment: braintree.Environment.Sandbox,
   merchantId: process.env.BRAINTREE_MERCHANT_ID,
@@ -22,7 +21,7 @@ export const createProductController = async (req, res) => {
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
-    //alidation
+
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is Required" });
@@ -61,7 +60,6 @@ export const createProductController = async (req, res) => {
   }
 };
 
-//get all products
 export const getProductController = async (req, res) => {
   try {
     const products = await productModel
@@ -85,7 +83,7 @@ export const getProductController = async (req, res) => {
     });
   }
 };
-// get single product
+
 export const getSingleProductController = async (req, res) => {
   try {
     const product = await productModel
@@ -107,7 +105,6 @@ export const getSingleProductController = async (req, res) => {
   }
 };
 
-// get photo
 export const productPhotoController = async (req, res) => {
   try {
     const product = await productModel.findById(req.params.pid).select("photo");
@@ -125,7 +122,6 @@ export const productPhotoController = async (req, res) => {
   }
 };
 
-//delete controller
 export const deleteProductController = async (req, res) => {
   try {
     await productModel.findByIdAndDelete(req.params.pid).select("-photo");
@@ -143,13 +139,12 @@ export const deleteProductController = async (req, res) => {
   }
 };
 
-//upate producta
 export const updateProductController = async (req, res) => {
   try {
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
-    //alidation
+    //validation
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is Required" });

@@ -1,5 +1,7 @@
 .banner-img {
   margin-top: 60px;
+  height: 400px;
+  justify-content: center;
 }
 
 .home-page h1 {
